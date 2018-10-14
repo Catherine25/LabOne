@@ -52,4 +52,20 @@ public class Controller
         if (_coffeeMachine.Water < _coffeeMachine.GetDrinkTypeCost(_drinkType) / 10)
             throw new Exception("Not enought water in machine!");
     }
+    public float GetMoney(ref CoffeeMachine _coffeeMachine)
+    {
+        return _coffeeMachine.Money;
+    }
+    public void CreateSomeDrinks(ref CoffeeMachine _coffeeMachine, string _drinkType, float _money, int _amount)
+    {
+        if (_amount < 0)
+            throw new Exception("Negative amount!");
+        if (_coffeeMachine.GetDrinkTypeCost(_drinkType) * _amount < _money)
+            throw new Exception("Not enought money!");
+        while (_amount != 0)
+        {
+            MakeOneCoffee(ref _coffeeMachine, _drinkType, _money);
+            _amount--;
+        }
+    }
 }
