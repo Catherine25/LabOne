@@ -4,9 +4,8 @@ using static CoffeeMachine;
 
 public class Controller
 {
-    public Controller()
-    {
-    }
+    public Controller() { }
+
     public CoffeeMachine CreateMachine(string _model, float _coffeeMax, float _milkMax, float _sugarMax, float _waterMax)
     {
         if (_model == "" || _model.IndexOf(" ") >= 0)
@@ -23,6 +22,7 @@ public class Controller
         CoffeeMachine coffeeMachine = new CoffeeMachine(_model, _coffeeMax, _milkMax, _sugarMax, _waterMax);
         return coffeeMachine;
     }
+
     public void MakeOneCoffee(ref CoffeeMachine _coffeeMachine, string _drinkType, float _money)
     {
         if (_drinkType == "" || _drinkType.IndexOf(" ") >= 0)
@@ -35,10 +35,12 @@ public class Controller
 
         _coffeeMachine.MakeOneCoffee(_drinkType, _money);
     }
+
     public void RefilIngredient(ref CoffeeMachine _coffeeMachine)
     {
         _coffeeMachine.RefilIngredients();
     }
+
     public void CheckIngredients(ref CoffeeMachine _coffeeMachine, string _drinkType)
     {
         if (_drinkType == "" || _drinkType.IndexOf(" ") >= 0)
@@ -52,15 +54,17 @@ public class Controller
         if (_coffeeMachine.Water < _coffeeMachine.GetDrinkTypeCost(_drinkType) / 10)
             throw new Exception("Not enought water in machine!");
     }
+
     public float GetMoney(ref CoffeeMachine _coffeeMachine)
     {
         return _coffeeMachine.Money;
     }
-    public void CreateSomeDrinks(ref CoffeeMachine _coffeeMachine, string _drinkType, float _money, int _amount)
+
+    public void MakeSomeDrinks(ref CoffeeMachine _coffeeMachine, string _drinkType, float _money, int _amount)
     {
         if (_amount < 0)
             throw new Exception("Negative amount!");
-        if (_coffeeMachine.GetDrinkTypeCost(_drinkType) * _amount < _money)
+        if (_coffeeMachine.GetDrinkTypeCost(_drinkType) * _amount > _money)
             throw new Exception("Not enought money!");
         while (_amount != 0)
         {
