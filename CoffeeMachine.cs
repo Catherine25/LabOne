@@ -18,11 +18,11 @@ public class CoffeeMachine
     public float Water { get; set; }
     public float Sugar { get; set; }
 
-    float CoffeeMaximum { get; set; }
-    float MilkMaximum { get; set; }
-    float WaterMaximum { get; set; }
-    float SugarMaximum { get; set; }
-    float Money { get; set; }
+    public float CoffeeMaximum { get; set; }
+    public float MilkMaximum { get; set; }
+    public float WaterMaximum { get; set; }
+    public float SugarMaximum { get; set; }
+    public float Money { get; set; }
 
     enum DrinkTypes
     {
