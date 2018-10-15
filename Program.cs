@@ -75,14 +75,10 @@ namespace SPZ_Lab_One
             }
 
             //8. making_one_coffee	
-            try
-            {
-                controller.MakeOneCoffee(ref coffeeMachine1, "Americano", 2.0f);
-            }
-            catch (Exception)
-            {
-                Console.WriteLine("Test_2.1 'making_one_coffee' passed");
-            }
+            controller.RefilIngredient(ref coffeeMachine1);
+            controller.MakeOneCoffee(ref coffeeMachine1, "Americano", 2.0f);
+            Console.WriteLine("Test_2.1 'making_one_coffee' passed");
+            
 
             //9. wrong_coffee_type			
             try
